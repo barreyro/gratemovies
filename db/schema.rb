@@ -18,13 +18,14 @@ ActiveRecord::Schema.define(version: 20150505224941) do
 
   create_table "movies", force: true do |t|
     t.string "title",        null: false
-    t.string "release_date"
-    t.string "genre"
+    t.string "release_date", null: false
+    t.string "genre",        null: false
   end
 
   create_table "reviews", force: true do |t|
     t.string   "email",      null: false
     t.integer  "rating"
+    t.text     "comment"
     t.integer  "movie_id"
     t.datetime "created_at"
     t.datetime "updated_at"
