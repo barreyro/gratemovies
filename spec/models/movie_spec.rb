@@ -28,4 +28,23 @@ describe Movie do
     expect(Movie.all).not_to include movie
   end
 
+  it "is valid with more than 1 review" do
+    movie = Movie.create(
+      title: "Good Will Hunting",
+      release_date: "1997-12-05 00:01:00",
+      genre:"Drame")
+    review = Review.create(
+      email: Faker::Internet.email,
+      rating: rand(1..10),
+      comment: Faker::Lorem.paragraph(2)
+    )
+    review2 = Review.create(
+      email: Faker::Internet.email,
+      rating: rand(1..10),
+      comment: Faker::Lorem.paragraph(2)
+    )
+    movie.reviews << review
+    movie.reviews << review2
+    expect(movie.reviews.count).to eq 2
+  end
 end
