@@ -1,0 +1,13 @@
+<h1>All Reviews</h1>
+
+<section id="reviewShow">
+  <% @reviews.each do |review| %>
+      <%= review.name %>
+      <%= review.description %>
+      <%= review.stock %>
+      <%= link_to 'Show', review %>
+    </tr>
+  <% end %>
+<body>
+
+<%= link_to 'New Review', new_review_path %>

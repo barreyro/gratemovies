@@ -7,8 +7,13 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-
+  <div class="wrapper">
+    <p> <h1>G<i>RATE</i>MOVIES</h1>
+        <%= yield %>
+    </p>
+  </div>
+  <div class="footer">
+    <p>*Used OMDB's API*</p>
+  </div>
 </body>
 </html>
