@@ -1,6 +1,20 @@
 require 'rails_helper'
 
 describe Review do
+  it "belongs to a movie" do
+    review = Review.create(
+      email: Faker::Internet.email,
+      rating: rand(1..10),
+      comment: Faker::Lorem.paragraph(2)
+    )
+    movie = Movie.create(
+      title: "UFOs",
+      release_date: "2015-05-05 03:11:34",
+      genre:"Documentary")
+    movie.reviews << review
+    expect(review.movie).to be_valid
+  end
+
   it "is valid with email, rating, date, and comment" do
     review = Review.create(
       email: Faker::Internet.email,
